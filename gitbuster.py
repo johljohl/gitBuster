@@ -7,25 +7,25 @@ class GitBuster:
     def __init__(self, root):
         self.root = root
         self.root.title("GitBuster")
-        self.root.geometry('500x400')  # Set the window size
+        self.root.geometry('670x400')  # Make sure the window is wide enough for the buttons
         
         self.working_directory = os.getcwd()  # Start with the current working directory
         
         # ScrolledText widget for Git command output
-        self.info_text = scrolledtext.ScrolledText(root, height=10, wrap=tk.WORD)
+        self.info_text = scrolledtext.ScrolledText(root, width=80, height=10, wrap=tk.WORD)
         self.info_text.grid(row=8, column=0, columnspan=2, pady=5, padx=5, sticky="nsew")
         
         # Button to select a working directory
-        tk.Button(root, text="Select Directory", command=self.select_directory).grid(row=0, column=0, sticky='ew')
+        tk.Button(root, text="Select Directory", command=self.select_directory, width=90).grid(row=0, column=0, sticky='ew', padx=5)
         
         # Buttons for Git operations
-        tk.Button(root, text="Add Files", command=self.add_files).grid(row=1, column=0, sticky='ew')
-        tk.Button(root, text="Commit Changes", command=self.commit_changes).grid(row=2, column=0, sticky='ew')
-        tk.Button(root, text="Change Commit Name", command=self.change_commit_name).grid(row=3, column=0, sticky='ew')
-        tk.Button(root, text="Push Changes", command=self.push_changes).grid(row=4, column=0, sticky='ew')
-        tk.Button(root, text="Change Branch", command=self.change_branch).grid(row=5, column=0, sticky='ew')
-        tk.Button(root, text="Create Branch", command=self.create_branch).grid(row=6, column=0, sticky='ew')
-        tk.Button(root, text="Git Status", command=self.git_status).grid(row=7, column=0, sticky='ew')
+        tk.Button(root, text="Add Files", command=self.add_files, width=90).grid(row=1, column=0, sticky='ew', padx=5)
+        tk.Button(root, text="Commit Changes", command=self.commit_changes, width=90).grid(row=2, column=0, sticky='ew', padx=5)
+        tk.Button(root, text="Change Commit Name", command=self.change_commit_name, width=90).grid(row=3, column=0, sticky='ew', padx=5)
+        tk.Button(root, text="Push Changes", command=self.push_changes, width=90).grid(row=4, column=0, sticky='ew', padx=5)
+        tk.Button(root, text="Change Branch", command=self.change_branch, width=90).grid(row=5, column=0, sticky='ew', padx=5)
+        tk.Button(root, text="Create Branch", command=self.create_branch, width=90).grid(row=6, column=0, sticky='ew', padx=5)
+        tk.Button(root, text="Git Status", command=self.git_status, width=90).grid(row=7, column=0, sticky='ew', padx=5)
 
     def run_git_command(self, command):
         try:
